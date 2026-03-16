@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>דף עבודה מודרך – מערכים</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+      margin: 0;
+      padding: 20px;
+      direction: rtl;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 40px 50px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2b4a8f;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #2b4a8f;
+      padding-bottom: 15px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 35px;
+      font-size: 1rem;
+    }
+
+    .intro-box {
+      background: #eef2ff;
+      border-right: 4px solid #2b4a8f;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 35px;
+      font-size: 1rem;
+    }
+
+    .section {
+      margin-bottom: 45px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      background: #2b4a8f;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .section-body {
+      padding: 25px;
+    }
+
+    .task-description {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .step {
+      margin-bottom: 20px;
+    }
+
+    .step-label {
+      font-weight: bold;
+      color: #2b4a8f;
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      margin: 0 0 8px 0;
+    }
+
+    .question {
+      background: #f8fafc;
+      border-right: 3px solid #0ea5e9;
+      padding: 10px 15px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 1rem;
+    }
+
+    .hint-btn {
+      background: none;
+      border: 1.5px solid #aaa;
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 0.9rem;
+      color: #555;
+      cursor: pointer;
+      margin-top: 6px;
+      font-family: inherit;
+      direction: rtl;
+      transition: all 0.2s ease;
+    }
+
+    .hint-btn:hover {
+      border-color: #2b4a8f;
+      color: #2b4a8f;
+    }
+
+    .hint-content {
+      display: none;
+      background: #fffbea;
+      border: 1px solid #f6d860;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .hint-content.visible {
+      display: block;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .code-block {
+      display: block;
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin: 10px 0;
+      white-space: pre;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-family: 'Courier New', monospace;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 20px 0;
+    }
+
+    .insight-box {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #166534;
+    }
+
+    .warning-box {
+      background: #fff7ed;
+      border: 2px solid #fdba74;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #9a3412;
+    }
+
+    .bridge-box {
+      background: #eef2ff;
+      border: 2px solid #2b4a8f;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>דף עבודה מודרך </h1>
+  <div class="subtitle"> </div>
+
+  <div class="intro-box">
+    בדף הזה נגלה יחד מושג חדש – אבל לא לפני שנבין למה בכלל צריך אותו.
+    נתחיל עם בעיה שאתם יודעים לפתור, ונראה לאן היא מובילה אותנו.
+  </div>
+
+  <!-- ===== PART 1: GRADES ===== -->
+  <div class="section">
+    <div class="section-header">חלק א׳ – ציונים וממוצע</div>
+    <div class="section-body">
+      <div class="file-nudge">
+        📁 צרו פרויקט חדש ב-Visual Studio. שם הקובץ: <code>Grades.cs</code>
+      </div>
+
+      <div class="task-description">
+        תלמיד קולט את הציונים שלו ב-5 מקצועות. התוכנית מחשבת ומדפיסה את הממוצע.
+      </div>
+
+      <div class="step">
+        <div class="step-label">משימה 1 – ממוצע</div>
+        <p>כתבו תוכנית שקולטת 5 ציונים מהמשתמש בלולאה, מחשבת את הממוצע ומדפיסה אותו.</p>
+        <p>זה משהו שאתם יודעים לעשות – קדימה! 💪</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">משימה 2 – אילו ציונים היו מעל הממוצע?</div>
+        <p>עכשיו רוצים להוסיף: הדפיסו את כל הציונים שהיו <strong>מעל הממוצע</strong>.</p>
+
+        <div class="question">
+          🤔 האם אפשר לבדוק כל ציון מול הממוצע כבר בלולאה הראשונה – זו שקולטת את הציונים ומחשבת את הסכום?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          לא! כדי לחשב את הממוצע צריך לסיים לקלוט את כל הציונים קודם.
+          כל עוד לא סיימנו לקלוט – אין לנו ממוצע להשוות אליו.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">אז מה עושים?</div>
+        <div class="question">
+          🤔 אם לא אפשר לבדוק בלולאה הראשונה – מה הפיתרון?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          צריך לעבור שוב על הציונים! אחרי שחישבנו את הממוצע – נשאל את המשתמש שוב להזין את הציונים, ונשווה כל אחד לממוצע.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">משימה 3 – מימוש</div>
+        <p>הוסיפו ללולאה שנייה שקולטת את הציונים שוב ומדפיסה רק את אלה שמעל הממוצע.</p>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז למבנה</button>
+        <div class="hint-content">
+          <div class="code-block">// לולאה ראשונה - קליטה וחישוב ממוצע
+int sum = 0;
+for (int i = 0; i &lt; 5; i++)
+{
+    Console.Write("Enter grade " + (i + 1) + ": ");
+    int grade = int.Parse(Console.ReadLine());
+    sum = sum + grade;
+}
+double average = (double)sum / 5;
+Console.WriteLine("Average: " + average);
+
+// לולאה שנייה - קליטה שנייה והשוואה לממוצע
+Console.WriteLine("Grades above average:");
+for (int i = 0; i &lt; 5; i++)
+{
+    Console.Write("Enter grade " + (i + 1) + " again: ");
+    int grade = int.Parse(Console.ReadLine());
+    if (grade > average)
+    {
+        Console.WriteLine(grade);
+    }
+}</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">רגע של עצירה</div>
+        <div class="question">
+          🤔 אתם המשתמש. הרגע הזנתם 5 ציונים. ועכשיו התוכנית מבקשת מכם להזין אותם שוב... איך זה מרגיש?
+        </div>
+        <div class="insight-box">
+          זו חוויית משתמש גרועה. המשתמש כבר הזין את הנתונים – לבקש שוב זה מעצבן ולא מקצועי.
+          ובעצם – הנתונים כבר היו לנו. פשוט לא שמרנו אותם.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="file-nudge" style="background:#f0f4ff; border-color:#93c5fd; color:#1e40af; margin-top:8px;">
+        🖥️ הריצו את התוכנית. כשהפלט מוצג בחלון הקונסול – לחצו בתוך החלון, Ctrl+A ואז Ctrl+C.
+        פתחו את הקובץ <code>Results.txt</code> והדביקו תחת <strong>Part A</strong>.
+      </div>
+
+      <div class="step" style=margin-top:30px;>
+        <div class="step-label">ועכשיו שאלה:   מה עושים כאשר הקלט לא מגיע מהשתמש?</div>
+        <div class="question">
+          🤔 דמיינו שהנתונים לא מגיעים ממשתמש אלא נוצרים אוטומטית – כמו מדידה שמתבצעת בזמן אמת. האם גם אז אפשר לבקש "שוב"?
+        </div>
+
+        <div class="bridge-box">
+          💭 מה אם במקום ציונים, היינו מודדים משהו שמגיע בזמן אמת – למשל, קצב הלב שלכם במהלך אימון כושר? חיישן מודד כל דקה ושולח את התוצאה – ואי אפשר לחזור ולמדוד שוב.<br><br>
+          עוברים לחלק ב׳ →
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== PART 2: HEART RATE ===== -->
+  <div class="section">
+    <div class="section-header">חלק ב׳ – דופק באימון כושר</div>
+    <div class="section-body">
+      <div class="file-nudge">
+        📁 צרו פרויקט חדש ב-Visual Studio. שם הקובץ: <code>HeartRateVariables.cs</code>
+      </div>
+
+      <div class="step">
+        <div class="step-label">משימה 1 – מדידת דופק</div>
+        <p>כתבו תוכנית שמדמה אפליקציית כושר. האפליקציה מודדת את קצב הלב (BPM – פעימות לדקה) פעם בדקה במהלך אימון של 10 דקות.</p>
+        <p>השתמשו ב- <code>Random</code> כדי לדמות את המדידות. דופק במהלך אימון נע בין 60 ל-180.</p>
+        <p>הדפיסו כל מדידה כשהיא מתקבלת.</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">משימה 2 – ממוצע הדופק</div>
+        <p>הוסיפו לתוכנית חישוב ממוצע הדופק, ובסוף האימון הדפיסו את הממוצע.</p>
+        <p>זה משהו שאתם כבר יודעים לעשות 💪</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">משימה 3 – דקות מעל הממוצע</div>
+        <p>עכשיו רוצים לדעת: <strong>באילו דקות הדופק היה מעל הממוצע?</strong> אלו היו הדקות שעבדתם הכי קשה.</p>
+
+        <div class="question">
+          🤔 האם אפשר לבדוק כל מדידה מול הממוצע בלולאה שכבר כתבתם? למה כן או למה לא?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          לא – אותה בעיה כמו בחלק א׳. כדי לבדוק מול הממוצע, צריך קודם לסיים את כל המדידות ולחשב את הממוצע. אי אפשר לדעת את הממוצע באמצע.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">אז מה עושים?</div>
+        <div class="question">
+          🤔 בחלק א׳ פתרנו את זה על ידי שאלת המשתמש שוב. האם אפשר לעשות את אותו דבר כאן?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          לא! המדידות נוצרות אקראית – כל פעם שנריץ שוב את הלולאה נקבל מספרים שונים לגמרי. אין "משתמש" לשאול, והחיישן לא חוזר לאותה דקה.
+          הנתונים פשוט... נעלמו.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">פיתרון – נשמור כל מדידה במשתנה</div>
+        <p>רעיון: מה אם נשמור כל מדידה במשתנה? <code>bpm1</code>, <code>bpm2</code>... עד <code>bpm10</code>. אז הנתונים לא נעלמים!</p>
+        <p>כתבו מחדש את התוכנית – הפעם ללא לולאה לקליטה. הגדירו 10 משתנים נפרדים, שמרו בכל אחד מדידה אקראית, חשבו ממוצע, והדפיסו את המדידות שמעל הממוצע.</p>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז למבנה</button>
+        <div class="hint-content">
+          <div class="code-block">Random rnd = new Random();
+int bpm1 = rnd.Next(60, 181);
+int bpm2 = rnd.Next(60, 181);
+int bpm3 = rnd.Next(60, 181);
+int bpm4 = rnd.Next(60, 181);
+int bpm5 = rnd.Next(60, 181);
+int bpm6 = rnd.Next(60, 181);
+int bpm7 = rnd.Next(60, 181);
+int bpm8 = rnd.Next(60, 181);
+int bpm9 = rnd.Next(60, 181);
+int bpm10 = rnd.Next(60, 181);
+
+double average = (double)(bpm1 + bpm2 + bpm3 + bpm4 + bpm5 +
+                          bpm6 + bpm7 + bpm8 + bpm9 + bpm10) / 10;
+Console.WriteLine("Average BPM: " + average);
+
+Console.WriteLine("Minutes above average:");
+if (bpm1 > average) Console.WriteLine(bpm1);
+if (bpm2 > average) Console.WriteLine(bpm2);
+// ... וכן הלאה עד bpm10</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+<div class="step">
+        <div class="step-label">אתגר – שנו את התוכנית לאימון של שעה</div>
+        <p>האימון עכשיו הוא שעה שלמה – 60 דקות. שנו את התוכנית כך שתעבוד עבור 60 מדידות.</p>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          כך ייראה הקוד עם 60 משתנים:
+          <div class="code-block">int bpm1 = rnd.Next(60, 181);
+int bpm2 = rnd.Next(60, 181);
+int bpm3 = rnd.Next(60, 181);
+// ... עוד 54 שורות כאלה...
+int bpm58 = rnd.Next(60, 181);
+int bpm59 = rnd.Next(60, 181);
+int bpm60 = rnd.Next(60, 181);
+
+double average = (double)(bpm1 + bpm2 + bpm3 + ... + bpm60) / 60;
+// ועוד 60 בדיקות if...</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">רגע של עצירה</div>
+        <div class="question">
+          🤔 האם באמת כתבתם 60 משתנים? איך זה הרגיש?
+        </div>
+        <div class="question">
+          🤔 ומה אם האפליקציה מודדת כל <strong>שנייה</strong>? זה 3,600 מדידות בשעה. האם עדיין הגיוני להשתמש במשתנים בודדים?
+        </div>
+
+        <div class="warning-box">
+          ⚠️ ברור שזה לא פיתרון אמיתי לכמויות גדולות של נתונים. אנחנו צריכים כלי חדש – כזה שיכול להחזיק הרבה ערכים, ולאפשר גישה לכל אחד מהם בכל רגע.<br><br>
+          <strong>הכלי הזה קיים. הוא נקרא מערך.</strong> את זה נראה בחלק ג׳ →
+        </div>
+      </div>
+      <div class="file-nudge" style="background:#f0f4ff; border-color:#93c5fd; color:#1e40af; margin-top:8px;">
+        🖥️ אבל תחילה, הריצו את התוכנית. כשהפלט מוצג בחלון הקונסול – לחצו בתוך החלון, Ctrl+A ואז Ctrl+C.
+        פתחו את הקובץ <code>Results.txt</code> והדביקו תחת <strong>Part B</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PART 3: ARRAYS ===== -->
+  <div class="section">
+    <div class="section-header">חלק ג׳ – מערך</div>
+    <div class="section-body">
+      <div class="file-nudge">
+        📁 צרו פרויקט חדש ב-Visual Studio. שם הקובץ: <code>HeartRateArray.cs</code>
+      </div>
+
+      <div class="step">
+        <div class="step-label">הכירו את המערך</div>
+        <p>הנה קוד שיעזור לנו בהמשך לפתור את הבעיה שלנו – הוא מודד דופק אחת לדקה במשך 10 דקות, ומדפיס כל מדידה:</p>
+        <div class="code-block">Random rnd = new Random();
+int[] heartRate = new int[10];
+
+for (int i = 0; i &lt; heartRate.Length; i++)
+{
+    heartRate[i] = rnd.Next(60, 181);
+    Console.WriteLine("Minute " + (i + 1) + ": " + heartRate[i] + " BPM");
+}</div>
+        <p>העתיקו את הקוד והריצו אותו.</p>
+        <div class="question">
+          🤔 מה עשתה התוכנית? מה הדפיסה? הריצו אותה כמה פעמים – מה שמתם לב?
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">שורה ראשונה – הגדרת המערך</div>
+        <p>הסתכלו על השורה:</p>
+        <div class="code-block">int[] heartRate = new int[10];</div>
+        <p>זו הגדרה של <strong>מערך</strong> – כלי שמחזיק מספר ערכים מאותו טיפוס תחת שם אחד.</p>
+        <ul>
+          <li><code>int[]</code> – מערך של מספרים שלמים</li>
+          <li><code>heartRate</code> – שם המערך</li>
+          <li><code>new int[10]</code> – יוצרים מערך עם 10 תאים</li>
+        </ul>
+        <div class="question">
+          🤔 מה לדעתכם יש בתאים מיד אחרי ההגדרה, לפני שמילאנו אותם?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 תשובה</button>
+        <div class="hint-content">
+          כל התאים מכילים 0 – זו ברירת המחדל של <code>int</code> ב-C#.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">גישה לתא לפי אינדקס</div>
+        <p>כל תא במערך מזוהה לפי <strong>אינדקס</strong> – מספר סידורי שמתחיל ב- <strong>0</strong>.</p>
+        <p>הוסיפו את השורות הבאות <strong>אחרי הלולאה</strong> וראו מה קורה:</p>
+        <div class="code-block">Console.WriteLine(heartRate[0]);  // תא ראשון
+Console.WriteLine(heartRate[9]);  // תא אחרון</div>
+        <div class="question">
+          🤔 מה האינדקס של התא האחרון במערך של 10 תאים? למה לא 10?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 תשובה</button>
+        <div class="hint-content">
+          האינדקס האחרון הוא 9 – כי מתחילים מ-0. מערך של 10 תאים: אינדקסים 0 עד 9.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">מה קורה אם יוצאים מהגבולות?</div>
+        <p>עכשיו נסו להוסיף שורה זו ולהריץ:</p>
+        <div class="code-block">Console.WriteLine(heartRate[10]);</div>
+        <div class="question">
+          🤔 מה קרה? למה?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 תשובה</button>
+        <div class="hint-content">
+          קיבלתם שגיאת ריצה: <code>IndexOutOfRangeException</code> – יציאה מגבולות המערך.<br>
+          מערך של 10 תאים מאפשר גישה רק לאינדקסים 0 עד 9. אינדקס 10 לא קיים.<br>
+          זו שגיאה נפוצה מאוד – חשוב לזכור: האינדקס האחרון הוא תמיד <code>Length - 1</code>.<br><br>
+          כדי להמשיך – הוסיפו <code>//</code> לפני השורה הזו כדי להשבית אותה:<br>
+          <code>// Console.WriteLine(heartRate[10]);</code><br>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">התכונה Length וגודל קבוע</div>
+        <p>הוסיפו שורה זו לקוד וראו מה מדפיסה:</p>
+        <div class="code-block">Console.WriteLine(heartRate.Length);</div>
+        <div class="question">
+          🤔 מה הדפיסה? למה שימושי להשתמש ב- <code>heartRate.Length</code> בלולאה במקום המספר 10?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 תשובה</button>
+        <div class="hint-content">
+          אם נשנה את גודל המערך בעתיד – נשנה רק בהגדרה, והלולאה תתאים את עצמה אוטומטית.<br>
+          חשוב לדעת: גודל המערך <strong>קבוע</strong> – אי אפשר להוסיף תאים אחרי שהמערך נוצר.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">תחביר חלופי לאתחול</div>
+        <p>יש עוד דרך להגדיר מערך – כשהערכים ידועים מראש:</p>
+        <div class="code-block">int[] heartRate = {72, 85, 91, 88, 76, 95, 102, 98, 87, 79};</div>
+        <p>זה יוצר מערך של 10 תאים עם הערכים שציינו – בשורה אחת.</p>
+        <div class="question">
+          🤔 באיזה מקרה תעדיפו את הדרך עם <code>new int[10]</code> ובאיזה מקרה את הדרך עם הסוגריים המסולסלים?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          כשהערכים לא ידועים מראש (למשל – מגיעים מחיישן או מהמשתמש) נשתמש ב- <code>new int[10]</code> ונמלא בלולאה.<br>
+          כשהערכים ידועים מראש – הסוגריים המסולסלים נוחים יותר.
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">חזרה לבעיה המקורית – ממוצע ומדידות מעל הממוצע</div>
+        <p>עכשיו יש לנו את כל הכלים. בואו נפתור את הבעיה שהתחלנו איתה – חשב ממוצע דופק, ואז הדפס את המדידות שהיו מעל הממוצע.</p>
+        <p>הוסיפו ללולאה הקיימת חישוב סכום, ואחריה – חשבו ממוצע והדפיסו אותו.</p>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          <div class="code-block">int sum = 0;
+for (int i = 0; i &lt; heartRate.Length; i++)
+{
+    sum = sum + heartRate[i];
+}
+double average = (double)sum / heartRate.Length;
+Console.WriteLine("Average BPM: " + average);</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">המעבר השני – הפעם זה עובד!</div>
+        <p>עכשיו הוסיפו לולאה נוספת שעוברת על המערך ומדפיסה רק את המדידות שמעל הממוצע.</p>
+        <div class="question">
+          🤔 האם הפעם אפשר לעבור שוב על הנתונים? למה?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 תשובה</button>
+        <div class="hint-content">
+          כן! כל המדידות שמורות במערך – אפשר לעבור עליהן כמה פעמים שרוצים. זו בדיוק הנקודה!
+          <div class="code-block">Console.WriteLine("Minutes above average BPM:");
+for (int i = 0; i &lt; heartRate.Length; i++)
+{
+    if (heartRate[i] > average)
+    {
+        Console.WriteLine("Minute " + (i + 1) + ": " + heartRate[i] + " BPM");
+    }
+}</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">עוד פעולות שימושיות על מערכים</div>
+        <p>כעת כשיש לנו את המערך עם כל המדידות, אפשר לעשות עוד דברים מעניינים. הוסיפו לתוכנית:</p>
+        <p><strong>א׳ – מצאו את מדידת הדופק הגבוהה ביותר:</strong></p>
+        <div class="question">
+          🤔 איך מוצאים את הערך הגבוה ביותר במערך? מה צריך לאתחל לפני הלולאה?
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          <div class="code-block">int maxBpm = heartRate[0]; // מתחילים מהתא הראשון
+for (int i = 1; i &lt; heartRate.Length; i++)
+{
+    if (heartRate[i] > maxBpm)
+    {
+        maxBpm = heartRate[i];
+    }
+}
+Console.WriteLine("Max BPM: " + maxBpm);</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <p><strong>ב׳ – ספרו כמה דקות הדופק היה מעל 150:</strong></p>
+        <div class="question">
+          🤔 כתבו לולאה שסופרת כמה תאים במערך גדולים מ-150.
+        </div>
+        <button class="hint-btn" onclick="toggleHint(this)">💡 רמז</button>
+        <div class="hint-content">
+          <div class="code-block">int count = 0;
+for (int i = 0; i &lt; heartRate.Length; i++)
+{
+    if (heartRate[i] > 150)
+    {
+        count++;
+    }
+}
+Console.WriteLine("Minutes above 150 BPM: " + count);</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">מערכים מטיפוסים שונים – פעולות נפרדות</div>
+        <p>כל תאי המערך חייבים להיות <strong>מאותו טיפוס</strong> – לא ניתן לערבב טיפוסים במערך אחד.</p>
+        <p>כתבו פעולה בשם <code>ShowTemperatureExample</code> – מחוץ ל- <code>Main</code>, בתוך המחלקה. הוסיפו קריאה אליה מתוך <code>Main</code>:</p>
+        <div class="code-block">// ב- Main:
+ShowTemperatureExample();
+
+// מחוץ ל- Main:
+static void ShowTemperatureExample()
+{
+    double[] temperatures = {36.6, 37.1, 36.8, 38.2, 37.5};
+    double sum = 0;
+    for (int i = 0; i &lt; temperatures.Length; i++)
+    {
+        sum = sum + temperatures[i];
+    }
+    Console.WriteLine("Average temperature: " + sum / temperatures.Length);
+}</div>
+        <p>הריצו. אלה בדיוק אותם עקרונות – רק עם טיפוס שונה.</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">מערך של תווים</div>
+        <p>באותו אופן – כתבו פעולה בשם <code>ShowCharExample</code> מחוץ ל- <code>Main</code>, והוסיפו קריאה אליה:</p>
+        <div class="code-block">// ב- Main:
+ShowCharExample();
+
+// מחוץ ל- Main:
+static void ShowCharExample()
+{
+    char[] letters = {'h', 'e', 'l', 'l', 'o'};
+    for (int i = 0; i &lt; letters.Length; i++)
+    {
+        Console.Write(letters[i]);
+    }
+    Console.WriteLine();
+}</div>
+        <p>הריצו. מה הדפיסה התוכנית?</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="step">
+        <div class="step-label">רגע – את זה כבר ראיתם!</div>
+        <p>הסתכלו על הקוד הזה:</p>
+        <div class="code-block">string word = "hello";
+Console.WriteLine(word[0]);     // h
+Console.WriteLine(word[1]);     // e
+Console.WriteLine(word.Length); // 5</div>
+        <p>אינדקס שמתחיל ב-0... התכונה <code>Length</code>... גישה לתו לפי מיקום...</p>
+        <p>זה לא מקרי. <strong>מחרוזת היא בעצם מערך של תווים.</strong> כשלמדתם לעבור על מחרוזת עם לולאה, השתמשתם בדיוק באותם עקרונות – בלי לדעת שאתם כבר עובדים עם מערך. 😊</p>
+      </div>
+    </div>
+
+      <div class="file-nudge" style="margin-top: 10px;">
+        ✅ סיימתם! וודאו שהקובץ <code>HeartRateArray.cs</code> מכיל את כל החלקים:<br>
+        פעולת <code>Main</code> עם כל שלבי תוכנית הדופק, ופעולות <code>ShowTemperatureExample</code> ו- <code>ShowCharExample</code>.<br>
+      </div>
+
+      <div class="file-nudge" style="background:#f0f4ff; border-color:#93c5fd; color:#1e40af; margin-top:30px;">
+        🖥️ הריצו את התוכנית. כשהפלט מוצג בחלון הקונסול – לחצו בתוך החלון, Ctrl+A ואז Ctrl+C.
+        פתחו את הקובץ <code>Results.txt</code> והדביקו תחת <strong>Part C</strong>.
+      </div>
+
+      <div class="file-nudge" style="background:#fff7ed; border-color:#fdba74; color:#9a3412; margin-top:50px;">
+        📤 הגשה: העלו את ארבעת הקבצים הבאים דרך Google Classroom:<br>
+        <code>Grades.cs</code> &nbsp;|&nbsp;
+        <code>HeartRateVariables.cs</code> &nbsp;|&nbsp;
+        <code>HeartRateArray.cs</code> &nbsp;|&nbsp;
+        <code>Results.txt</code>
+      </div>
+
+  </div>
+  <div style="text-align: center; margin-top: 25px; font-size: 1.5rem; color: #cbd5e0;">
+    ✦✦✦
+  </div>
+</div>
+
+<script>
+  function toggleHint(btn) {
+    const hint = btn.nextElementSibling;
+    if (hint.classList.contains('visible')) {
+      hint.classList.remove('visible');
+    } else {
+      hint.classList.add('visible');
+    }
+  }
+</script>
+
+</body>
+</html>
