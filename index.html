@@ -644,64 +644,59 @@ Console.WriteLine("Minutes above 150 BPM: " + count);</div>
       <hr class="divider">
 
       <div class="step">
-        <div class="step-label">מערכים מטיפוסים שונים – פעולות נפרדות</div>
+        <div class="step-label">מערכים מטיפוסים שונים</div>
         <p>כל תאי המערך חייבים להיות <strong>מאותו טיפוס</strong> – לא ניתן לערבב טיפוסים במערך אחד.</p>
-        <p>כתבו פעולה בשם <code>ShowTemperatureExample</code> – מחוץ ל- <code>Main</code>, בתוך המחלקה. הוסיפו קריאה אליה מתוך <code>Main</code>:</p>
-        <div class="code-block">// ב- Main:
-ShowTemperatureExample();
+        <p>מערך יכול להיות מכל טיפוס נתונים. הנה לדוגמה מערך מטיפוס <code>double</code> שמכיל ממוצעי ציונים של תלמידים בכיתה. הקוד שלפנינו משנה את ערכם של תאי המערך, ע"י הוספת 10 נקודות בונוס לממוצע של כל תלמיד.ה:</p>
+        <div class="code-block">double[] averages = {78.5, 92.0, 65.3, 88.7, 71.4};
 
-// מחוץ ל- Main:
-static void ShowTemperatureExample()
+// add 10 bonus points to each student
+for (int i = 0; i &lt; averages.Length; i++)
 {
-    double[] temperatures = {36.6, 37.1, 36.8, 38.2, 37.5};
-    double sum = 0;
-    for (int i = 0; i &lt; temperatures.Length; i++)
-    {
-        sum = sum + temperatures[i];
-    }
-    Console.WriteLine("Average temperature: " + sum / temperatures.Length);
-}</div>
-        <p>הריצו. אלה בדיוק אותם עקרונות – רק עם טיפוס שונה.</p>
-      </div>
+    averages[i] = averages[i] + 10;
+}
 
-      <hr class="divider">
+// print updated averages
+for (int i = 0; i &lt; averages.Length; i++)
+{
+    Console.WriteLine("Student " + (i + 1) + ": " + averages[i]);
+}</div>
+        <p>העתיקו והריצו. שימו לב: אנחנו יכולים <strong>לשנות</strong> את הערך בכל תא – לא רק לקרוא ממנו.</p>
+      </div>
 
       <div class="step">
         <div class="step-label">מערך של תווים</div>
-        <p>באותו אופן – כתבו פעולה בשם <code>ShowCharExample</code> מחוץ ל- <code>Main</code>, והוסיפו קריאה אליה:</p>
-        <div class="code-block">// ב- Main:
-ShowCharExample();
-
-// מחוץ ל- Main:
-static void ShowCharExample()
+        <p>הנה דוגמה נוספת – מערך של תווים. העתיקו והריצו:</p>
+        <div class="code-block">char[] myChars = {'h', 'e', 'l', 'l', 'o'};
+for (int i = 0; i < myChars.Length; i++)
 {
-    char[] letters = {'h', 'e', 'l', 'l', 'o'};
-    for (int i = 0; i &lt; letters.Length; i++)
-    {
-        Console.Write(letters[i]);
-    }
-    Console.WriteLine();
-}</div>
-        <p>הריצו. מה הדפיסה התוכנית?</p>
+    Console.Write(myChars[i]);
+}
+Console.WriteLine();</div>
+        <p>מה הדפיסה התוכנית?</p>
       </div>
 
       <hr class="divider">
 
       <div class="step">
         <div class="step-label">רגע – את זה כבר ראיתם!</div>
-        <p>הסתכלו על הקוד הזה:</p>
-        <div class="code-block">string word = "hello";
-Console.WriteLine(word[0]);     // h
-Console.WriteLine(word[1]);     // e
-Console.WriteLine(word.Length); // 5</div>
-        <p>אינדקס שמתחיל ב-0... התכונה <code>Length</code>... גישה לתו לפי מיקום...</p>
-        <p>זה לא מקרי. <strong>מחרוזת היא בעצם מערך של תווים.</strong> כשלמדתם לעבור על מחרוזת עם לולאה, השתמשתם בדיוק באותם עקרונות – בלי לדעת שאתם כבר עובדים עם מערך. 😊</p>
+        <p>הסתכלו על שתי הדוגמאות הבאות זו לצד זו:</p>
+        <div class="code-block">// מערך של תווים:
+char[] myChars = {'h', 'e', 'l', 'l', 'o'};
+Console.WriteLine(myChars[0]);     // h
+Console.WriteLine(myChars.Length); // 5
+
+// מחרוזת - בדיוק אותו תחביר!
+string myString = "hello";
+Console.WriteLine(myString[0]);     // h
+Console.WriteLine(myString.Length); // 5</div>
+        <p>אותו אינדקס, אותו <code>Length</code>, אותה גישה לפי מיקום – בדיוק אותו תחביר.</p>
+        <p><strong>מחרוזת היא בעצם מערך של תווים.</strong> כשלמדתם לעבור על מחרוזת עם לולאה, השתמשתם בדיוק באותם העקרונות – מבלי לדעת שאתם כבר עובדים עם מערך. 😊</p>
       </div>
     </div>
 
       <div class="file-nudge" style="margin-top: 10px;">
         ✅ סיימתם! וודאו שהקובץ <code>HeartRateArray.cs</code> מכיל את כל החלקים:<br>
-        פעולת <code>Main</code> עם כל שלבי תוכנית הדופק, ופעולות <code>ShowTemperatureExample</code> ו- <code>ShowCharExample</code>.<br>
+        פעולת <code>Main</code> עם כל שלבי תוכנית הדופק, ואת דוגמאות ה- <code>double[]</code> וה- <code>char[]</code>.<br>
       </div>
 
       <div class="file-nudge" style="background:#f0f4ff; border-color:#93c5fd; color:#1e40af; margin-top:30px;">
